@@ -1,0 +1,38 @@
+.c-pinterest-card {
+
+    width:100%;
+    background: $color-pinterest-card;
+    position:relative;
+    transition:$transition-default;
+
+    &__image {
+
+        &__inner {
+            padding-top: 60%;
+            @include bgimg(cover);
+            .l-pinterest-cards__item:nth-child(odd) & {
+                padding-top:70%;
+            }
+        }
+        .l-pinterest-cards__item:nth-child(even) & {
+            .c-overlay {
+                opacity:0;
+            }
+        }
+
+    }
+
+    &__title {
+        @include spacing(padding,all,box);
+        .l-pinterest-cards__item:nth-child(odd) & {
+            position:absolute;
+            top:0;
+            color: #fff;
+        }
+    }
+
+    .no-touch &:hover {
+        transform: scale3d(0.98,0.98,0.98);
+    }
+
+}

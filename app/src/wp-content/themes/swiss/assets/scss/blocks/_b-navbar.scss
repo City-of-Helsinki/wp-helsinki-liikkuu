@@ -1,0 +1,126 @@
+.b-navbar {
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    @include z-index(header);
+    border-bottom: 1px solid $color-grey-lighter;
+    // Use sticky position if supported, otherwise fallback to relative.
+    position: relative;
+    @supports (position: sticky) {
+        position: sticky;
+    }
+
+    @include bp(sm) {
+        border-top: 1px solid $color-grey-lighter;
+    }
+
+    &__container {
+        @include container;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        height: $b-navbar-height-mobile;
+        padding: 0 $b-navbar-horizontal-padding;
+        @include bp(sm) {
+            height: $b-navbar-height * 2;
+        }
+        @include bp(md) {
+            height: $b-navbar-height;
+        }
+    }
+
+    &__logo {
+        margin-left: auto;
+        z-index: 200;
+        background-image: url(../img/helsinki-logo2.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center left;
+        font-size: 0px;
+        transition: all 0.2s ease-in-out;
+        width: 75px;
+        margin-right: 0;
+        height: 50px;
+        @include bp(sm) {
+            display: none;
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        @include bp(sm) {
+            flex-direction: column;
+        }
+
+        @include bp(md) {
+            flex-direction: row;
+        }
+    }
+
+    &__extras {
+        margin-right: 2rem;
+        z-index: 1;
+
+        @include bp(sm) {
+            margin-right: auto;
+            display: flex;
+        }
+    }
+
+    &__mobile-wrapper {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        transition: $transition-default;
+        left: -100vw;
+
+        @include bp(sm) {
+            display: none;
+        }
+
+        .has-open-navigation & {
+            left: 0;
+        }
+
+        &__container {
+            padding-top: $b-navbar-height;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__content {
+            @include spacing(padding, all, itemspace);
+            @include spacing(margin, bottom, itemspace);
+            @include spacing(margin, top, itemspace);
+        }
+
+        &__footer {
+            flex-grow: 1;
+            @include spacing(padding, all, itemspace);
+            background: $color-mobile-nav-footer;
+            text-align: center;
+            //@include koro($color:"pink",$size:"section",$direction:"horizontal",$vposition:"top");
+            //&:after { top: -2.2rem; } // Adjust koro shape position slightly
+
+            // I AM REALLY SORRY FOR THESE
+            .c-language-switcher {
+                text-align: center;
+                margin: 1rem 0;
+                padding: 0;
+                border: 0;
+            }
+
+            .c-social-media {
+                text-align: center;
+                margin: 2rem 0 4rem;
+            }
+        }
+    }
+}

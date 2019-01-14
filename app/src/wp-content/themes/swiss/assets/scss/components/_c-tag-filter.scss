@@ -1,0 +1,29 @@
+.c-tag-filter {
+    margin-left:1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    @include font-size(sm);
+    &--clear {
+        display:block;
+        border:none;
+        padding-left:0;
+        padding-right:0;
+        @include bp(sm) {
+            margin-top:0;
+            display:inline;
+            padding-left:2rem;
+            padding-right:2rem;
+        }
+        &::before {
+            content: "\f00d";
+            font-family: "Font Awesome 5 Free";
+            font-weight:900;
+            display: block;
+
+        }
+    }
+    &.active:not(.c-tag-filter--clear) {
+        background: $color-text;
+        color:#fff;
+    }
+}

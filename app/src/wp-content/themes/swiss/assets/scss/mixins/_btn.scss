@@ -1,0 +1,30 @@
+/*
+
+EXAMPLE:
+----
+@include btn;                           // default button
+@include btn(#000,$color-brand,#000);   // customized colors
+
+ */
+
+ @mixin btn( $btn-text-color: $color-text, $btn-bg-color: transparent, $btn-padding: 0.5em 2em, $btn-color-hover:$color-text) {
+
+    transition: $transition-default;
+    background: $btn-bg-color;
+    display: inline-block;
+    padding: $btn-padding;
+    font-weight:$font-weight-strong;
+    @include font-size(button);
+    border: 2px solid #000;
+
+    span,
+    & {
+        color: $btn-text-color;
+    }
+
+    .no-touch &:hover {
+        background: $btn-color-hover;
+        text-decoration: none;
+        color: #fff;
+    }
+}

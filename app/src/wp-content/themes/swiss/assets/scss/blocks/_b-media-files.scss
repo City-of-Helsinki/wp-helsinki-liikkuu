@@ -1,0 +1,20 @@
+.b-media-files {
+    @include section;
+    &__container {
+        @include container;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        @include spacing(margin, top, itemspace);
+        @include spacing(margin, bottom, itemspace);
+    }
+    &__item {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        @include bp(sm) {
+            width: 25%;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.c-media-files-item {
+    @include spacing(margin, all, box);
+    width: 90%;
+    &__load {
+        display: block;
+    }
+    &__title {
+        padding-top: 0.5rem;
+    }
+    &__image-wrapper {
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        width: 262px;
+        height: 146px;
+        > div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+}

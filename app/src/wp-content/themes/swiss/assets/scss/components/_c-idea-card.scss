@@ -1,0 +1,29 @@
+.c-idea-card {
+    position:relative;
+    margin:10px;
+    height:calc(100% - 20px);
+    &__bg {
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background-size:cover;
+        background-position: center;
+        .c-overlay {
+            transition: $transition-default;
+        }
+    }
+    &__title {
+        @include spacing(padding,all,box);
+        color:#fff;
+        position: absolute;
+    }
+    .no-touch &:hover {
+        .c-idea-card__bg {
+            .c-overlay {
+                opacity:0;
+            }
+        }
+    }
+}

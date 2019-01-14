@@ -1,0 +1,52 @@
+{
+    "key": "group_54ddebcd1dfe7",
+    "title": "Block Development",
+    "fields": [
+        {
+            "key": "field_54ddee97933e5",
+            "label": "Block Development",
+            "name": "block_development",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5a7d9b97008fc": {
+                    "key": "5a7d9b97008fc",
+                    "name": "test",
+                    "label": "Test",
+                    "display": "row",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Block",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_status",
+                "operator": "==",
+                "value": "acf-disabled"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1518181344
+}

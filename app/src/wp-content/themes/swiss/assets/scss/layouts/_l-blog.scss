@@ -1,0 +1,30 @@
+.l-blog {
+    &__content {
+
+        &__listing {
+            display:flex;
+            flex-wrap:wrap;
+            @include animation-sequence(0.10, 20);
+
+            &>* {
+                @include animation();
+            }
+        }
+    }
+
+    &__sidebar {
+        @include bp(md) {
+            @include animation();
+        }
+    }
+
+    ul.page-numbers {
+        @include spacing(margin, top, itemspace);
+    }
+
+    &:after {
+        clear: both;
+        display: block;
+        content: "";
+    }
+}

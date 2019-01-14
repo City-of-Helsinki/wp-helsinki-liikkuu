@@ -1,0 +1,15 @@
+// import variavbles, mixins, helper etc, potentially layouts?
+@import "../../../../../assets/scss/everblox-helper";
+
+@import "vendor-overwrite";
+
+.b-juicer {
+
+    @include section;
+    position: relative;
+
+    &__container {
+        @include container;
+    }
+
+}

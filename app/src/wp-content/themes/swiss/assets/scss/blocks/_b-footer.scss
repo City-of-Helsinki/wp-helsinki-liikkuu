@@ -1,0 +1,112 @@
+.b-footer {
+    @include z-index(footer);
+    @include spacing(padding, top, itemspace);
+    position: relative;
+
+    &__navcontainer {
+        @include container;
+        margin-bottom:5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        @include bp(sm) {
+            flex-direction: row;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    &__links {
+        @include container;
+        @include spacing(padding,top,itemspace);  
+        display: flex;
+        justify-content: space-between;
+        a {
+            @include font-size(sm);
+            &:hover {
+                font-weight:$font-weight-strong;
+            }
+        }
+    }
+
+    &__logo {
+        width: 15rem;
+    }
+
+    &__lower {
+        @include koro($color:"blue",$direction:"horizontal");
+        background: $color-footer;
+        border-top:2px solid $color-footer;
+    }
+
+    &__logos {
+        @include container;
+        @include spacing(padding,top,box);
+        @include spacing(padding,bottom,box);
+        display:flex;
+        flex-direction: column-reverse;
+        @include bp(sm) {
+            flex-direction: row;
+        }
+    }
+
+    &__logos-item {
+        width:100%;
+        text-align: center;
+        @include spacing(padding,top,box);
+        @include spacing(padding,bottom,box);
+        @include bp(sm) {
+            width:50%;
+            padding:0;
+            &:first-child {
+                text-align: left;
+            }
+            &:last-child {
+                text-align: right;
+            }
+        }
+        &--helsinki {
+            height:52px;
+        }
+    }
+
+
+    &__navigation {
+
+    }
+
+    &__copyright {
+        @include container;
+        @include font-size(sm);
+        @include spacing(padding,top,box);
+        @include spacing(padding,bottom,itemspace);
+
+        border-top: 1px solid rgba($border-color-light,0.3);
+
+        p {
+            text-align: center;
+
+            @include bp(md) {
+
+                &:first-child {
+                    float: left;
+                }
+
+                &:last-child {
+                    float: right;
+                }
+            }
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+}

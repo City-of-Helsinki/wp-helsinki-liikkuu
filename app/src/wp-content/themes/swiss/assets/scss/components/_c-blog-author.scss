@@ -1,0 +1,44 @@
+.c-blog-author {
+
+    @include spacing(margin, bottom, itemspace);
+
+    position: relative;
+
+    &__avatar {
+        transition: $transition-default;
+        height:5rem;
+        width:5rem;
+        background-size:cover;
+        background-position: center;
+        border-radius:50%;
+
+        float: left;
+    }
+
+    &__text {
+        @include spacing(padding, left, box);
+
+        margin-left: 4.5rem;
+
+        p {
+            @include font-size(sm);
+            margin-top: 0.2em;
+        }
+    }
+
+    &__link {
+        @include full-cover;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    &:hover {
+        .c-blog-author__avatar {
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+    }
+}

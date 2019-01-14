@@ -1,0 +1,78 @@
+/**
+ * Define helper classes used to override default component
+ * behavior.
+ *
+ * 1) Think carefully should something be a stand-alone component
+ *    rather than a helper.
+ * 2) If CSS inheritance is an issue, use !important flag on the
+ *    properties. Don't try to force a parent class on the
+ *    definitions.
+ */
+
+// Make any element behave like a clickable link.
+.h-clickable {
+    cursor: pointer;
+    position: relative;
+    display: block;
+
+    &__item {
+        @include overlay(transparent, 0);
+    }
+}
+
+// Helper for basic WYSIWYG editor styles.
+.h-wysiwyg-html {
+    @include wysiwyg-html;
+}
+
+// A 16:9 wrapper class for any YouTube embed.
+.h-youtube-wrapper {
+    background: #000;
+    padding-top: 56.25%;
+    position: relative;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Hide accessability features
+.h-accessability {
+    position: fixed;
+    top: -9999px;
+}
+
+/**
+ * Visibility helpers for elements. Note that these override
+ * any existing display settings.
+ */
+
+.h-hidden {
+    display: none !important;
+}
+
+.h-visible-mobile {
+    @include bp(sm,max) {
+        display: block !important;
+    }
+}
+
+.h-visible-laptop {
+    @media (min-width: $screen-md-min) and (max-width: $screen-lg-max) {
+        display: block !important;
+    }
+}
+
+.h-visible-desktop {
+    @include bp(xl) {
+        display: block !important;
+    }
+}
+
+.h-visible-all {
+    display: block !important;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="602px" viewBox="0 0 22 602" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Project/.sub-hero" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-750.000000, 1.000000)">
+        <g id="Group-13" transform="translate(761.000000, 300.000000) scale(-1, -1) rotate(90.000000) translate(-761.000000, -300.000000) translate(460.000000, 289.000000)" fill="#EBEDF1" fill-rule="nonzero">
+            <g id="wave">
+                <path d="M150.923104,1.93995019 C113.356791,1.93995019 113.356791,21.4415547 75.790477,21.4415547 C38.2241634,21.4415547 38.2241634,1.93995019 0.657849758,1.93995019 L0.657849758,0 L150.923104,0 L301.188359,0 L451.453613,0 L601.718868,0 L601.718868,1.93995019 C564.152554,1.93995019 564.152554,21.4415547 526.58624,21.4415547 C489.019927,21.4415547 489.019927,1.93995019 451.453613,1.93995019 C413.8873,1.93995019 413.8873,21.4415547 376.320986,21.4415547 C338.754672,21.4415547 338.754672,1.93995019 301.188359,1.93995019 C263.622045,1.93995019 263.622045,21.4415547 226.055731,21.4415547 C188.489418,21.4415547 188.489418,1.93995019 150.923104,1.93995019 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

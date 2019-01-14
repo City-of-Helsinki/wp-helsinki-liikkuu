@@ -1,0 +1,12 @@
+._.*
+.dockerignore
+.DS_Store
+.git*
+app/dist/composer.json
+app/dist/license.txt
+app/dist/readme.html
+app/dist/wp-content/themes/swiss/assets/node_modules
+app/dist/wp-content/themes/twentyfifteen
+app/dist/wp-content/themes/twentyseventeen
+app/dist/wp-content/themes/twentysixteen
+app/vendor/wordpress

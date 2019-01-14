@@ -1,0 +1,7 @@
+.b-ideas-archive {
+    @include section;
+    &__container {
+        @include container;
+        @include spacing(margin, top, itemspace);
+    }
+}

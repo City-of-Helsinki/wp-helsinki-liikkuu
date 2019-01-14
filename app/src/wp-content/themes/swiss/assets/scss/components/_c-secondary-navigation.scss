@@ -1,0 +1,38 @@
+.c-secondary-navigation {
+    display:none;
+    &__items {
+        padding:2rem 0 0 0;
+        @include bp(md) {
+            padding:0;
+        }
+    }
+    li {
+        @include font-size(sm);
+        a {
+            &::after {
+                display:none;
+            }
+            .no-touch &:hover {
+                text-decoration: underline;
+            }
+        }
+        &.is-current-menu-item {
+            a {
+                text-decoration: underline;                
+            }
+        }
+        @include bp(sm) {
+            margin: 0 2rem 0 0;       
+        }
+        @include bp(md) {
+            margin: 0 0 0 2rem;            
+        }
+    }
+    @include bp(sm) {
+        display:block;
+    }
+    .has-open-navigation .b-navbar__mobile-wrapper & {
+        display:block;
+        text-align:center;
+    }
+}

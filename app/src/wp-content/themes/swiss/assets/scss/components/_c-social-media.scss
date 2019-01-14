@@ -1,0 +1,43 @@
+.c-social-media {
+    position: relative;
+    font-size: 2.4rem;
+
+    @include bp(sm) {
+        font-size: inherit;
+    }
+
+    &__title {
+        display: inline-block;
+        padding-right: 0.3em;
+    }
+
+    &__list {
+        display: inline;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            &:not(:last-child) {
+                @include spacing(margin, right, box);
+                @include bp(sm) {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        a {
+            padding: 0 0.3em 0.3em;
+            transition: $transition-fast;
+            @include bp(sm) {
+                opacity: 0.65;
+
+                &:hover,
+                &:focus {
+                    opacity: 1.0;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,46 @@
+.l-pinterest-cards {
+    column-count: 1;
+    column-gap: 15px;
+    column-fill: auto;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 15px;
+    -webkit-column-fill: auto;
+    -moz-column-count: 1;
+    -moz-column-gap: 15px;
+    -moz-column-fill: balance;
+    @include bp(sm) {
+        column-count: 2;   
+        -webkit-column-count: 2;  
+        -moz-column-count: 2;  
+    }
+    @include bp(md) {
+        column-count: 3;   
+        -webkit-column-count: 3;  
+        -moz-column-count: 3;  
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    &__item {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        margin-bottom:15px;
+    }
+
+    // for our bad ass veterans
+    .no-flexbox & {
+        display: block;
+
+        &__item {
+            float: left;
+        }
+    }
+}

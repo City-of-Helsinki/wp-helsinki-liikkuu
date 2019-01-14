@@ -1,0 +1,77 @@
+/**
+ * Set the base document styles here.
+ *
+ * 1) This file should only be used for the most top level elements.
+ * 2) See typography and block, layout and component files for more
+ *    specific styles.
+ */
+
+html {
+    box-sizing: border-box;
+    font-size: 8px;
+
+    @include bp(xs) {
+        font-size: 8.5px;
+    }
+
+    @include bp(sm) {
+        font-size: 9px;
+    }
+
+    @include bp(md) {
+        font-size: 9.5px;
+    }
+
+    @include bp(lg) {
+        font-size: 10px;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    outline: none;
+}
+
+body {
+    @include font-size(base);
+
+    background-color: $color-body;
+    font-family: $font-family-default;
+    font-weight: $font-weight-default;
+    line-height: $line-height-base;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Disable scrolling when mobile menu is open
+    &.open-mobile-menu {
+        @include bp($breakpoint-navigation-mobile, max) {
+            overflow: hidden;
+        }
+    }
+
+    @include bp(sm) {
+        padding-top: $b-site-header-height;
+    }
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    line-height: inherit;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}

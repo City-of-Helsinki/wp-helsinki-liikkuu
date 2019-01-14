@@ -1,0 +1,98 @@
+@mixin koro(
+    $color: "grey",
+    $size: "section",
+    $direction: "vertical",
+    $vposition: "top"
+) {
+    position: relative;
+    &::after {
+        @include z-index;
+        content: "";
+        position: absolute;
+        @if $direction == "vertical" {
+            bottom: 0;
+            top: 0;
+            margin-left: 0.1rem;
+            background-repeat: repeat-y;
+            background-size: 100% auto;
+            @if $size == "section" {
+                width: 2.5rem;
+                right: -2.4rem;
+            } @else if $size == "itemspace" {
+                width: 1rem;
+                right: -0.9rem;
+            }
+        } @else if $direction == "horizontal" {
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            @if $size == "section" {
+                top: -2.4rem;
+                height: 2.5rem;
+            } @else if $size == "itemspace" {
+                top: -0.9rem;
+                height: 1rem;
+            }
+        }
+
+        // Flip the koro upside-down if the position is set to bottom
+        @if $direction == "horizontal" and $vposition == "bottom" {
+            @if $size == "section" {
+                top: auto;
+                bottom: -2.4rem;
+                height: 2.5rem;
+            } @else if $size == "itemspace" {
+                top: auto;
+                bottom: -0.9rem;
+                height: 1rem;
+            }
+            transform: rotate(180deg);
+        }
+
+        @if $color == "grey" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_grey.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_grey.svg");
+            }
+        } @else if $color == "pink" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_pink.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_pink.svg");
+            }
+        } @else if $color == "green" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_green.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_green.svg");
+            }
+        } @else if $color == "yellow" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_yellow.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_yellow.svg");
+            }
+        } @else if $color == "lightyellow" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_light_yellow.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_light_yellow.svg");
+            }
+        } @else if $color == "white" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_white.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_white.svg");
+            }
+        } @else if $color == "blue" {
+            @if $direction == "vertical" {
+                background-image: url("../img/koro_blue.svg");
+            } @else if $direction == "horizontal" {
+                background-image: url("../img/koro_top_blue.svg");
+            }
+        }
+    }
+}

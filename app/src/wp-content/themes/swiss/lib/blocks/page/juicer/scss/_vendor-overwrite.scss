@@ -1,0 +1,163 @@
+.juicer {
+    &-feed {
+        margin-top: 2rem !important;
+
+        /* Hide referral "Powered by SocialMedia" text and link */
+        h1.referral {
+            display: none !important;
+        }
+
+        /* Base some of our modifications on the specific theme, for specificity */
+        &.modern {
+            li.feed-item {
+                border: 1px solid #e3e3e3 !important;
+                font-family: $font-family-default;
+                font-weight: $font-weight-default;
+                line-height: $line-height-base;
+                transition: border-color 0.4s;
+
+                .j-message {
+                    color: #000;
+                }
+
+                &:hover {
+                    border: 1px solid $color-brand !important;
+                }
+            }
+        }
+
+        li.feed-item {
+            transition: 0.2s ease-in-out;
+            &:hover {
+                img {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        /* Links of the meta area */
+        .j-meta {
+            padding: 10px 20px !important;
+
+            li {
+                margin-right: 2rem !important;
+            }
+
+            a,
+            a:before,
+            a:hover {
+                color: $color-brand !important;
+                .j-overlay & {
+                    color: $color-text !important;
+                }
+            }
+        }
+
+        .j-message {
+            color: $color-text;
+        }
+
+        .j-text {
+            padding: 5% 5% 37px !important;
+        }
+
+        .j-display-filters {
+            html[lang="fi"] & {
+                visibility: hidden;
+                position: relative;
+                li {
+                    visibility: visible;
+                }
+                &:before {
+                    content: "Suodata:";
+                    visibility: visible;
+                    position: absolute;
+                    top: 8px;
+                }
+            }
+        }
+
+        /* Button to load more posts */
+        .j-paginate {
+            transition: all, 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+            background: #fff !important;
+            padding: 1.25rem 0.5rem !important;
+            border: 2px solid $color-text !important;
+            border-radius: none !important;
+            box-shadow: none !important;
+            text-transform: none !important;
+            letter-spacing: 0px !important;
+            margin-bottom: 0 !important;
+            color: $color-text !important;
+            font-size: 1.6rem !important;
+            width: 100% !important;
+            max-width: 150px !important;
+            font-family: $font-family-default !important;
+            position: relative;
+            line-height: 1 !important;
+            font-family: "HelsinkiGroteskBold", sans-serif !important;
+
+            // Language-based text change (SocialMedia does not support multilingual setups)
+            html[lang="fi"] & {
+                &:before {
+                    @include full-cover();
+                    @include font-size(md);
+                    content: "Lataa lisää";
+                    background: #fff;
+                    color: $color-text;
+                    white-space: nowrap;
+                    padding: 1.25rem 0.5rem;
+                    width: auto;
+                    display: inline-block;
+                    transform: translateX(-50%);
+                    font-size: 1.6rem !important;
+                    left: 50%;
+                    transition: all, 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+                    line-height: 1 !important;
+                    font-family: "HelsinkiGroteskBold", sans-serif !important;
+
+                    span,
+                    & {
+                        color: $color-text;
+                    }
+                }
+            }
+
+            &:hover {
+                color: #fff !important;
+                background: #000 !important;
+                &:before {
+                    color: #fff !important;
+                    background: #000 !important;
+                }
+            }
+        }
+    }
+}
+
+.j-overlay {
+    .j-message,
+    .j-meta,
+    .j-date {
+        font-family: $font-family-default;
+        font-weight: $font-weight-default;
+        line-height: $line-height-base;
+    }
+
+    .juicer-button {
+        color: $color-text !important;
+        border: 2px solid $color-text !important;
+
+        &:hover {
+            background: $color-brand !important;
+        }
+    }
+}
+
+.j-loading {
+    border: 4px solid $color-brand !important;
+}
+
+.j-loading:before {
+    background-color: $color-brand !important;
+}

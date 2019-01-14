@@ -1,0 +1,57 @@
+/*
+
+COLOR SCHEMES
+-----------
+All global color's should be set here.
+
+Connect the scheme to areas of the website by using:
+@include scheme-html-example();
+
+Don't use the @scheme-html(); because then you will have no way to later on reuse it.
+
+*/
+
+@mixin scheme-html(
+    $s-text-color: $color-text,
+    $s-headings-color: $color-heading,
+    $s-link-color: $color-link
+) {
+    p a:not(.c-btn),
+    li a:not(.c-btn) {
+        color: $s-text-color;
+        text-decoration: underline;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $s-headings-color;
+
+        a:not(.c-btn) {
+            color: $s-headings-color;
+        }
+    }
+
+    ul,
+    li,
+    p,
+    span {
+        color: $s-text-color;
+    }
+
+    /*
+        Components? Amend the variation of that component within the component itself. This encapsulates the styles which makes it easier to find, debug and modify.
+    */
+}
+
+// shortcuts for resuable schemes
+@mixin scheme-html-default() {
+    @include scheme-html();
+}
+
+@mixin scheme-html-inverted() {
+    @include scheme-html(#fff, #fff, #fff);
+}

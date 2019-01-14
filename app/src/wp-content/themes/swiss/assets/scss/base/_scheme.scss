@@ -1,0 +1,72 @@
+/**
+ * Creates a context for color schemes.
+ *
+ * 1) The s-context class sets the container of a specific scheme.
+ * 2) Add data-scheme-target to all elements within a scheme that
+ *    should be targeted by the color rules.
+ */
+
+.s-context {
+    position: relative;
+
+    [data-scheme-target] {
+        @include scheme-html-default;
+    }
+
+    &--grey {
+        background: $color-grey-lighter;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--pink {
+        background: $color-pink;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--yellow {
+        background: $color-yellow;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--green {
+        background: $color-green;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--blue {
+        background: $color-blue;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--red {
+        background: $color-red;
+
+        [data-scheme-target] {
+            @include scheme-html-default;
+        }
+    }
+    &--blue-darker {
+        background: $color-blue-darker;
+
+        [data-scheme-target] {
+            @include scheme-html-inverted;
+        }
+    }
+    &--black {
+        background: #000;
+
+        [data-scheme-target] {
+            @include scheme-html-inverted;
+        }
+    }
+}

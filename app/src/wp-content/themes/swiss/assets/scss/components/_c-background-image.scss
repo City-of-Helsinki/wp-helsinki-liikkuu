@@ -1,0 +1,5 @@
+.c-background-image {
+    @include full-cover;
+    @include bgimg($position: center top);
+    pointer-events: none;
+}

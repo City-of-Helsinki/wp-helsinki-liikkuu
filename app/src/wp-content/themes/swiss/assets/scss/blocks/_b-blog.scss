@@ -1,0 +1,90 @@
+.b-blog {
+    @include section;
+    &--single {
+        margin-bottom:0;
+    }
+    &__container {
+        @include container;
+
+        &--wider {
+            max-width: $container-max-width+100;
+        }
+
+        &+& {
+            @include spacing(margin, top, itemspace);
+            @include spacing(margin, bottom, itemspace);
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+    }
+    &__posts-listing {
+        @include container;
+    }
+
+    &__single-meta {
+        @include spacing(margin, top, box);
+    }
+
+    &--space-above {
+        @include spacing(margin, top, section);
+    }
+    &__filters {
+        @include spacing(margin,bottom,itemspace);
+        @include spacing(padding,all,itemspace);
+        @include font-size(sm);
+        background: $color-filters-bg;
+        font-weight: $font-weight-strong;
+        &--cta {
+            display:inline-block;
+            padding-left:1rem;
+        }
+        &--inner {
+            @include bp(sm) {
+                display:flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__loadmore {
+        display:block;
+        @include spacing(margin,bottom,box);
+        @include spacing(margin,top,box);   
+        text-align: center;    
+    }
+
+    &__sharebuttons {
+        background-color: $color-blog-separator;
+        position:relative;
+        @include spacing(padding,all,box);
+        @include spacing(margin,top,section);
+        @include koro($color:"yellow",$size:"section",$direction:"horizontal");
+    }
+
+    &__bottom {
+        &--event {
+            background: $color-blog-moreposts;
+        }
+    }
+
+    &__moreposts {
+        @include container;
+        @include spacing(padding,top,itemspace);
+        @include spacing(padding,bottom,itemspace);
+
+    }
+    &__moreposts-title {
+        @include spacing(padding,bottom,itemspace);
+        text-align: center;
+        @include bp(sm) {
+            text-align:left;
+        }
+    }
+    &__moreposts-link {
+        text-align: center;
+        @include spacing(padding,top,box);
+    }
+}

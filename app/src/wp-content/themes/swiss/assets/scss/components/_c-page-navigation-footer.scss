@@ -1,0 +1,50 @@
+.c-page-navigation-footer {
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: center;
+    @include spacing(padding,top,itemspace);
+    @include bp(sm) {
+        flex-direction: row;
+        text-align: left;
+        padding-top:0;
+    }
+
+    // Primary Level
+    & > li {
+        @include font-size(lg);
+        display: block;
+        @include bp(sm) {
+            @include spacing(padding,right,box);
+        }
+
+
+        & > a {
+            margin-bottom: 0.5em;
+
+            display: block;
+        }
+
+        // Secondary Level
+        & > ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: block;
+            }
+
+            a {
+                display: block;
+                line-height: 1.2em;
+                padding: 0.3em 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,172 @@
+/**
+ * Place all basic typography here. You can define more specific
+ * font styles in the components.
+ *
+ * 1) Do not define any colors here. All these fonts will need to
+ *    work in both light and dark areas.
+ * 2) All margins and paddings should be defined in either the
+ *    wysiwyg-html mixin or specific components.
+ */
+ /* Webfont: HelsinkiGrotesk-Regular */
+@font-face {
+    font-family: 'HelsinkiGroteskRegular';
+    src:url('../fonts/HelsinkiGrotesk-Regular.eot'); /* IE9 Compat Modes */
+    src:url('../fonts/HelsinkiGrotesk-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/HelsinkiGrotesk-Regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/HelsinkiGrotesk-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: HelsinkiGrotesk-Medium */
+@font-face {
+    font-family: 'HelsinkiGroteskMedium';
+    src:url('../fonts/HelsinkiGrotesk-Medium.eot'); /* IE9 Compat Modes */
+    src:url('../fonts/HelsinkiGrotesk-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/HelsinkiGrotesk-Medium.woff') format('woff'); /* Modern Browsers */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: HelsinkiGrotesk-Bold */
+@font-face {
+    font-family: 'HelsinkiGroteskBold';
+    src:url('../fonts/HelsinkiGrotesk-Bold.eot'); /* IE9 Compat Modes */
+    src:url('../fonts/HelsinkiGrotesk-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/HelsinkiGrotesk-Bold.woff') format('woff'); /* Modern Browsers */
+    font-style: bold;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: HelsinkiGrotesk-Black */
+@font-face {
+    font-family: 'HelsinkiGroteskBlack';
+    src:url('../fonts/HelsinkiGrotesk-Black.eot'); /* IE9 Compat Modes */
+    src:url('../fonts/HelsinkiGrotesk-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/HelsinkiGrotesk-Black.woff') format('woff'); /* Modern Browsers */
+    font-style: bold;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+
+// Headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $font-family-heading;
+    font-weight: $font-weight-heading;
+    line-height: $line-height-heading;
+    margin: 0;
+    padding: 0;
+}
+
+h1, .h1 {
+    @include font-size(h1);
+    .b-hero & {
+        @include font-size(xxl);
+    }
+}
+
+h2, .h2 {
+    @include font-size(h2);
+}
+
+h3, .h3 {
+    @include font-size(h3);
+}
+
+h4, .h4 {
+    @include font-size(h4);
+}
+
+h5, .h5 {
+    @include font-size(h5);
+}
+
+h6, .h6 {
+    @include font-size(h6);
+}
+
+// Other text elements
+p {
+    margin: 0;
+    padding: 0;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &.accent {
+        font-style: italic;
+    }
+}
+
+strong {
+    font-weight: $font-weight-default;
+}
+
+blockquote {
+    padding: 0;
+    border-left: 0.5em solid $color-brand;
+    margin: 0;
+}
+
+em {
+    position: relative;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0 0 0 2em;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background: rgba(125, 125, 125, 0.5);
+}
+
+i {
+    position: relative;
+}
+
+// Links
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.1s ease;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit;
+    }
+}
+
+// Text positioning
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+/**
+ * Helper classes for all sizes in the font size map. See the
+ * map in variables for a list of all sizes.
+ *
+ * Example:
+ * .text-sm, .text-md, .text-lg, .text-button
+ */
+
+@each $font-size-label, $font-size-map in $font-sizes {
+    .text-#{$font-size-label} {
+        @include font-size($font-size-label, important);
+    }
+}

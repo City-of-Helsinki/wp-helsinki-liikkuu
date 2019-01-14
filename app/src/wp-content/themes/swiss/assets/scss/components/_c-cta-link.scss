@@ -1,0 +1,19 @@
+.c-cta-link {
+    transition: $transition-default;
+    color: $color-text;
+    font-weight:$font-weight-strong;
+
+    &:after {
+        font-family: 'Font Awesome\ 5 Free';
+        content: "\f061";
+        font-weight:900;
+        color: inherit;
+        margin-left: 1em;
+        transition: $transition-default;
+    }
+    .no-touch &:hover, .no-touch .trigger-hover:hover & {
+        &:after {
+            margin-left:1.5em;
+        }
+    }
+}

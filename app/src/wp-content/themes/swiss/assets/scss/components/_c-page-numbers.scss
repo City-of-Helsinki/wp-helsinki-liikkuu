@@ -1,0 +1,29 @@
+.page-numbers,
+.c-page-numbers {
+    padding: 0;
+    text-align: center;
+
+    li {
+        display: inline-block;
+    }
+
+    a,
+    span {
+        padding: 0.6em 1em;
+        line-height: 1;
+        display: block;
+    }
+
+    a {
+        border-radius: $border-radius-default;
+        @include shadow;
+    }
+
+    span.current {
+        border-radius: $border-radius-default;
+        @include shadow;
+
+        background: $color-brand;
+        color: #fff;
+    }
+}

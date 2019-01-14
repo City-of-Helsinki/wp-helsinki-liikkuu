@@ -1,0 +1,60 @@
+.b-hero {
+    @include spacing(padding, top, section);
+    @include spacing(padding, bottom, section);
+    position: relative;
+    background: $color-hero;
+    &--pink {
+        background-color: $color-pink;
+    }
+    &--green {
+        background-color: $color-green;
+    }
+    &--blue {
+        background-color: $color-blue;
+    }
+    &--grey {
+        background-color: $color-grey;
+    }
+    &--red {
+        background-color: $color-red;
+    }
+    &--blue-darker {
+        background-color: $color-blue-darker;
+        color: #fff;
+    }
+    &--black {
+        background-color: #000;
+        color: #fff;
+    }
+    &--with-image {
+        color: #fff;
+    }
+    &__background {
+        @include full-cover;
+
+        background-size: cover;
+        background-position: center top;
+    }
+
+    &__container {
+        @include container;
+        @include z-index(content);
+    }
+
+    &__content {
+        @include spacing(margin, top, section);
+        @include spacing(margin, bottom, section);
+
+        @include bp(md) {
+            max-width: 60%;
+            margin: auto;
+        }
+    }
+    &__koro {
+        @include koro(
+            $color: "white",
+            $size: "section",
+            $direction: "horizontal"
+        );
+    }
+}

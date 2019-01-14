@@ -1,0 +1,30 @@
+.c-language-switcher {
+    position: relative;
+    @include spacing(padding, right, box);
+    @include spacing(margin, right, box);
+    border-right: 1px solid #f0f0f0;
+
+    @include bp(sm) {
+        @include font-size(sm);
+    }
+
+    &__item {
+        margin: 0 1rem;
+        display: inline-block;
+
+        @include bp(sm) {
+            opacity: 0.7;
+            transition: opacity 0.15s ease-in-out;
+            &:hover,
+            &:focus {
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .is-active {
+        display: none;
+        visibility: hidden;
+    }
+}

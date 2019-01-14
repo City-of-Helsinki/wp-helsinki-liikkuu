@@ -1,0 +1,57 @@
+.b-site-header {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    @include z-index(header);
+
+    @include bp(sm) {
+        display: block;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        height: $b-site-header-height;
+        padding: 0 $b-navbar-horizontal-padding;
+        @include container;
+    }
+
+    &__logo {
+        margin-left: auto;
+        z-index: 200;
+        background-image: url(../img/helsinki-logo2.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center left;
+        font-size: 0px;
+        width: 150px;
+        height: $b-site-header-height - 20px;
+    }
+
+    &__slogan {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+        padding-left: $b-navbar-horizontal-padding;
+
+        svg {
+            width: 100%;
+            height: auto;
+            max-width: 225px;
+            @include spacing(margin, left, itemspace);
+        }
+    }
+
+    &__extras {
+        margin-right: auto;
+        display: none;
+
+        @include bp(sm) {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
