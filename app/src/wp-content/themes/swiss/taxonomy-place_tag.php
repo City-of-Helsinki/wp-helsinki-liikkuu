@@ -79,7 +79,7 @@ get_header();
     <div class="c-slideshow-card__text">
     <div class="h-wysiwyg-html"><h3><?php the_title(); ?></h3><p><?php echo get_field('description');?></p></div></div>
 
-    <a target="_blank" href="<?php echo get_field('link'); ?>" class="c-slideshow-card__overlay-link"></a>
+    <a href="<?php echo get_field('link'); ?>" class="c-slideshow-card__overlay-link"></a>
 
 </div>
 </div>

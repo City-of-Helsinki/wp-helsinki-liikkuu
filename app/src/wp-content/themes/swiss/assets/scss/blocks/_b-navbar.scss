@@ -46,6 +46,11 @@
         @include bp(sm) {
             display: none;
         }
+
+        @include bp(sm, max){
+            margin-left: 0;
+            margin-right: auto;
+        }
     }
 
     &__navigation {
@@ -58,6 +63,10 @@
 
         @include bp(md) {
             flex-direction: row;
+        }
+
+        @media (max-width: 767px){
+            display: none;
         }
     }
 

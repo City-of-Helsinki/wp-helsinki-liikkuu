@@ -1,0 +1,21 @@
+---
+- name: Install MariaDB
+  apt:
+    name: mariadb-server
+    state: present
+    force: yes
+
+- name: install python mysql bindings
+  apt: name=python-mysqldb state=installed
+  become: yes
+  become_method: sudo
+
+- name: Create a new database with name 'finremfi'
+  mysql_db:
+    name: "{{ lookup('ini', 'PRODUCTION_MYSQL_DATABASE file=../env/.env') }}"
+    state: present
+- mysql_user:
+    name: "{{ lookup('ini', 'PRODUCTION_MYSQL_USER file=../env/.env') }} "
+    password: "{{ lookup('ini', 'PRODUCTION_MYSQL_PASSWORD file=../env/.env') }}"
+    priv: "{{ lookup('ini', 'PRODUCTION_MYSQL_DATABASE file=../env/.env') }}.*:ALL"
+    state: present

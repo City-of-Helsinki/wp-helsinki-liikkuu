@@ -8,22 +8,22 @@
 
 html {
     box-sizing: border-box;
-    font-size: 8px;
+    font-size: 0.5rem;
 
     @include bp(xs) {
-        font-size: 8.5px;
+        font-size: 0.53125rem;
     }
 
     @include bp(sm) {
-        font-size: 9px;
+        font-size: 0.5625rem;
     }
 
     @include bp(md) {
-        font-size: 9.5px;
+        font-size: 0.59375rem;
     }
 
     @include bp(lg) {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
 }
 
@@ -31,7 +31,22 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
-    outline: none;
+}
+
+*:focus {
+    outline-width: thick !important;
+    outline-color: rgb(77, 144, 254) !important;
+    outline-offset: -1px !important;
+    -webkit-box-shadow: 0px 0px 5px  #4D90FE;
+    box-shadow: 0px 0px 5px  #4D90FE;
+
+    &:before, &:after {
+        outline: none !important;
+    }
+}
+
+*:-moz-focusring {
+    outline-style: solid !important;
 }
 
 body {

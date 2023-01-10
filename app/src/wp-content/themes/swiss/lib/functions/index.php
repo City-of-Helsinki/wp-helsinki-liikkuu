@@ -297,7 +297,7 @@ function wpmlLanguageSwitcher()
 
             foreach ($languages as $l) :
                 if (!empty($l['url']) && !$l['active']) {
-                    $output .= '<a class="c-language-switcher__item" href="'.$l['url'].'" aria-label="'.__('Change language to: ', 'swiss').$l['native_name'].'">';
+                    $output .= '<a class="c-language-switcher__item" href="'.$l['url'].'" lang="'.$l['language_code'].'" aria-label="'.__('Change language to: ', 'swiss').$l['native_name'].'">';
                 }
                 if (!empty($l['language_code']) && !$l['active']) {
                     $output .= ucfirst(icl_disp_language($l['native_name']));

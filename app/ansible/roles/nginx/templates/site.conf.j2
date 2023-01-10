@@ -1,0 +1,65 @@
+server {
+    # Ports to listen on
+    listen 80;
+    listen [::]:80;
+
+    # Server name to listen for
+    server_name {{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }};
+
+    # Path to document root
+    root /srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/dist;
+
+    # File to be used as index
+    index index.html index.php;
+
+    # Overrides logs defined in nginx.conf, allows per site logs.
+    access_log off;
+    #error_log /srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/logs/error.log;
+
+    #auth_basic "Restricted";
+    #auth_basic_user_file /etc/nginx/.htpasswd;
+
+    # this include contains more wordpress security
+    include wordpress.conf;
+
+    # this include all the redirects
+    include redirect.conf;
+
+    # Default server block rules
+    include global/server/defaults.conf;
+
+    #for images lets try the image local first then if not lets make a proxy to use a fallback
+    location ~* \.(gif|jpg|png|jpeg)$ {
+        try_files $uri $uri/ @img_proxy;
+    }
+
+    # Rewrites for Yoast SEO XML Sitemap
+    rewrite ^/sitemap_index.xml$ /index.php?sitemap=1 last;
+    rewrite ^/([^/]+?)-sitemap([0-9]+)?.xml$ /index.php?sitemap=$1&sitemap_n=$2 last;
+
+    location @img_proxy {
+        rewrite ^ http://fakeimg.pl/1650x750/e3e3e3/d5d5d5/?text=placeholder;
+    }
+
+    location / {
+            try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+            try_files $uri =404;
+            include global/fastcgi-params.conf;
+
+            # Change socket if using PHP pools or PHP 5
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            #fastcgi_pass unix:/var/run/php5-fpm.sock;
+    }
+
+}
+
+{% if lookup('ini', 'PRODUCTION_SECONDARY_URL file=../env/.env') != "" %}
+server {
+  listen 80;
+  server_name {{ lookup('ini', 'PRODUCTION_SECONDARY_URL file=../env/.env') }};
+  return 301 http://{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}$request_uri;
+}
+{% endif %}

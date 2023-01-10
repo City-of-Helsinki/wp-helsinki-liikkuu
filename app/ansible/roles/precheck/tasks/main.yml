@@ -1,0 +1,10 @@
+---
+
+- name: Check that all required variables are defined
+  pause: 
+    prompt: "\n\nOOOPS! Seems that you haven't defined all required variables in your .env-file. Press ctrl+c to abort or hit any key to see some unexpected results"
+  when: lookup('ini', 'PRODUCTION_URL file=../env/.env') == [] or 
+        lookup('ini', 'PRODUCTION_MYSQL_DATABASE file=../env/.env') == [] or 
+        lookup('ini', 'PRODUCTION_MYSQL_USER file=../env/.env') == [] or 
+        lookup('ini', 'PRODUCTION_MYSQL_PASSWORD file=../env/.env') == []
+        

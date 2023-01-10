@@ -123,6 +123,31 @@
                 }
             }
 
+            html[lang="sv-SE"] & {
+                &:before {
+                    @include full-cover();
+                    @include font-size(md);
+                    content: "Ladda mer";
+                    background: #fff;
+                    color: $color-text;
+                    white-space: nowrap;
+                    padding: 1.25rem 0.5rem;
+                    width: auto;
+                    display: inline-block;
+                    transform: translateX(-50%);
+                    font-size: 1.6rem !important;
+                    left: 50%;
+                    transition: all, 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+                    line-height: 1 !important;
+                    font-family: "HelsinkiGroteskBold", sans-serif !important;
+
+                    span,
+                    & {
+                        color: $color-text;
+                    }
+                }
+            }
+
             &:hover {
                 color: #fff !important;
                 background: #000 !important;

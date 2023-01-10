@@ -35,4 +35,21 @@
         display:block;
         text-align:center;
     }
+
+
+    .wpml-ls-legacy-list-horizontal {
+        border: none;
+        display: inline-block;
+        clear: none;
+        padding: 0;
+
+        .wpml-ls-legacy-list-horizontal .wpml-ls-flag+span {
+            margin-left: 3px;
+        }
+
+        a {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
 }

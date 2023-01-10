@@ -101,7 +101,7 @@ gulp.task('acf', function (done) {
 gulp.task('watch', ['copy'], function () {
     gulp.watch(paths.php, ['php']);
     gulp.watch(paths.acf, ['acf']);
-    gulp.watch(paths.plugins, ['plugins']);
+    // gulp.watch(paths.plugins, ['plugins']);
 });
 
 /**

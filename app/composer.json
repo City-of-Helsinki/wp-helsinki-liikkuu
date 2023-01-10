@@ -1,44 +1,59 @@
 {
-  "name": "evermade/dockerpress",
-  "type": "project",
-  "description": "A WordPress build",
-  "homepage": "https://www.evermade.fi/",
-  "authors": [
-    {
-      "name": "Evermade Oy",
-      "email": "webmaster@evermade.fi",
-      "homepage": "https://www.evermade.fi"
-    }
-  ],
-  "config": {
-    "secure-http": false
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    }
-  ],
-  "require": {
-    "php": ">=5.3.2",
-    "composer/installers": "~1.0",
-    "johnpbloch/wordpress-core-installer": "~0.2",
-    "johnpbloch/wordpress-core": "~4.9.2",
-    "evermade/advanced-custom-fields-pro": "~5.6.7",
-    "wpackagist-plugin/wp-super-cache": "~1.5.5",
-    "wpackagist-plugin/wordpress-seo": "~7.0",
-    "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "2.0.1",
-    "wpackagist-plugin/amazon-s3-and-cloudfront": "~1.2",
-    "wpackagist-plugin/amazon-web-services": "~1.0.4",
-    "wpackagist-plugin/wp-mail-smtp": "~1.2.2",
-    "vlucas/phpdotenv": "^2.4"
-  },
-  "extra": {
-    "wordpress-install-dir": "vendor/wordpress",
-    "installer-paths": {
-      "src/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "src/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "src/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    "name": "evermade/dockerpress",
+    "type": "project",
+    "description": "A WordPress build",
+    "homepage": "https://www.evermade.fi/",
+    "authors": [
+      {
+        "name": "Evermade Oy",
+        "email": "webmaster@evermade.fi",
+        "homepage": "https://www.evermade.fi"
+      }
+    ],
+    "config": {
+      "secure-http":false
+    },
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+      },
+      {
+        "type": "composer",
+        "url": "http://composer.em87.io"
+      },
+      {
+        "type": "composer",
+        "url": "https://satispress.em87.io/satispress/"
+      }
+    ],
+    "require": {
+      "php": ">=5.3.2",
+      "vlucas/phpdotenv": "2.6.1",
+      "composer/installers" : "~1.0",
+      "johnpbloch/wordpress-core-installer": "~2.0.0",
+      "johnpbloch/wordpress-core": "^6.0.2",
+      "emsatispress/advanced-custom-fields-pro": "^5.12.3",
+      "emsatispress/sitepress-multilingual-cms": "~4.5.0",
+      "emsatispress/wpml-string-translation": "~3.2.0",
+      "wpackagist-plugin/wp-super-cache": "~1.7.2",
+      "wpackagist-plugin/wordpress-seo": "^19.0",
+      "wpackagist-plugin/acf-content-analysis-for-yoast-seo": "~3.0",
+      "wpackagist-plugin/amazon-s3-and-cloudfront": "~2.4",
+      "wpackagist-plugin/amazon-web-services": "~1.0.4",
+      "wpackagist-plugin/wp-mail-smtp": "^3.5.2",
+      "wpackagist-plugin/classic-editor": "~1.4",
+      "wpackagist-plugin/redis-cache": "~2.0"
+    },
+    "require-dev": {
+      "wpackagist-plugin/fakerpress": "~0.5.0"
+    },
+    "extra": {
+      "wordpress-install-dir": "vendor/wordpress",
+      "installer-paths": {
+        "src/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+        "src/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+        "src/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+      }
     }
   }
-}

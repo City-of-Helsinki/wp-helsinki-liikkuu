@@ -44,7 +44,7 @@
         </div>
         <div class="b-footer__copyright">
             <p>&copy; <?php _e('Copyright', 'swiss');?> <?php echo date('Y');?>&nbsp;•&nbsp;<?php bloginfo('name'); ?>&nbsp;•&nbsp;<?php _e('All rights reserved', 'swiss');?>.</p>
-            <p><?php _e('Website crafted by', 'swiss');?> <a href="https://www.evermade.fi" target="_blank" rel="noopener noreferrer">Evermade</a>.</p>
+            <p><?php _e('Website crafted by', 'swiss');?> <a href="https://www.evermade.fi" rel="noopener noreferrer">Evermade</a>.</p>
         </div>
     </div>
 

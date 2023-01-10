@@ -19,6 +19,14 @@
             display: block;
             clear: both;
         }
+
+        &--subpages {
+            flex: 1;
+
+            &:after {
+                content: none;
+            }
+        }
     }
 
     &__links {

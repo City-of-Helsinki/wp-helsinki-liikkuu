@@ -16,9 +16,9 @@
         $terms = get_terms( array(
             'taxonomy' => $tag_type
         ) ); ?>
-        <?php foreach ( $terms as $term ) : ?>
-        <a class="b-taglist__tag c-btn" href="<?php $link = get_term_link($term); echo esc_url($link); ?>"><?php echo $term->name; ?></a>
-        <?php endforeach; ?>
+        <?php foreach ( $terms as $term ) : $link = get_term_link($term); if (!in_array($link, $manual_tags)): ?>
+        <a class="b-taglist__tag c-btn" href="<?php echo esc_url($link); ?>"><?php echo $term->name; ?></a>
+        <?php endif; endforeach; ?>
         <?php endif; ?>
         <?php if($block->get('manual')) : ?>
         <?php foreach ( $block->get('manual') as $m => $v ) : ?>

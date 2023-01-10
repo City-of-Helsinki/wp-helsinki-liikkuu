@@ -3,7 +3,7 @@ services:
   wordpress:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-development
     ports:
       - 80:80
     volumes:
@@ -12,11 +12,15 @@ services:
         - ./app/env/.env
 
   mysql:
-    image: mariadb:10.3.4
+    image: mariadb:latest
     ports:
         - 3306:3306
     volumes:
-        - ./data/mariadb:/var/lib/mysql
+        - db_data:/var/lib/mysql
     env_file:
         - ./app/env/.env
 
+  redis:
+    image: redis:latest
+volumes:
+  db_data:

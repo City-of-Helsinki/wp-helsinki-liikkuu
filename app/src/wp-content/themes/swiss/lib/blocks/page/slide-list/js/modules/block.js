@@ -22,6 +22,12 @@ const cardslideshow = {
                 this.setup(this.elements[i]);
             }
         }
+
+        var flickityButtons = document.querySelectorAll('.flickity-prev-next-button');
+        flickityButtons.forEach(function(button) {
+            button.setAttribute('aria-hidden', 'true');
+            button.setAttribute('tabindex', '-1');
+        });
     },
 
     capture: function() {

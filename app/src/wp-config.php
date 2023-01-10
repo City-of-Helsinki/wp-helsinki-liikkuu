@@ -97,6 +97,9 @@ define('DBI_AWS_SECRET_ACCESS_KEY', getenv('DBI_AWS_SECRET_ACCESS_KEY'));
 
 define('WP_REDIS_HOST', 'redis');
 
+define( 'WP_MEMORY_LIMIT', '1024M' );
+define( 'WP_MAX_MEMORY_LIMIT', '1024M' );
+
 // disable file edit
 define('DISALLOW_FILE_EDIT', getenv('DISALLOW_FILE_EDIT'));
 

@@ -6,7 +6,7 @@
 
     <div class="c-blog-single-header__image">
 
-        <div class="c-background-image" style="background-image:url(<?php echo $my_post->getFeaturedImage('hero-large'); ?>);"></div>
+        <div class="c-background-image" style="background-image:url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'hero-large'); ?>);"></div>
         <div class="c-overlay"></div>
 
     </div>
@@ -16,9 +16,7 @@
         <p class="c-blog-single-header__date"><?php the_date(); ?></p>
 
         <h1>
-            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <?php the_title(); ?>
-            </a>
+            <?php the_title(); ?>
         </h1>
 
     </div>

@@ -1,0 +1,88 @@
+---
+- name: Add Nginx repo
+  apt_repository:
+    repo: ppa:nginx/development
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    force: yes
+    update_cache: yes
+
+- name: Check Nginx configs exist
+  stat: path=/etc/nginx/.git
+  register: git_exists
+
+- name: Remove default Nginx configs
+  file:
+    path: /etc/nginx
+    state: absent
+  when: not git_exists.stat.exists
+
+- name: Clone Nginx configs
+  git:
+    repo: https://github.com/A5hleyRich/wordpress-nginx.git
+    dest: /etc/nginx
+    version: master
+    force: yes
+  when: not git_exists.stat.exists
+
+# - name: Symlink default site
+#   file:
+#     src: /etc/nginx/sites-available/default
+#     dest: /etc/nginx/sites-enabled/default
+#     state: link
+#   notify: reload nginx
+
+- name: Copy across new virtual host for our site
+  template:
+    src=site.conf.j2
+    dest=/etc/nginx/sites-available/site.conf
+
+- name: Copy redirect files
+  template:
+    src=redirect.conf.j2
+    dest=/etc/nginx/redirect.conf
+
+- name: Copy across wordpress security
+  template:
+    src=wordpress.conf.j2
+    dest=/etc/nginx/wordpress.conf
+  notify: reload nginx
+
+# - name: Copy across http auth
+#   template:
+#     src=.htpasswd.j2
+#     dest=/etc/nginx/.htpasswd
+#   notify: reload nginx
+
+- name: Enable new virtual host for our site
+  file:
+    src=/etc/nginx/sites-available/site.conf
+    dest=/etc/nginx/sites-enabled/site.conf
+    state=link
+
+- name: Set Nginx user
+  lineinfile:
+    dest: /etc/nginx/nginx.conf
+    regexp: "^user"
+    line: "user {{ username }};"
+    state: present
+  notify: restart nginx
+
+- name: Create dist folder
+  file: path=/srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/dist state=directory mode=0755 owner=evermade group=evermade
+
+- name: Create backups folder
+  file: path=/srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/backups state=directory mode=0755 owner=evermade group=evermade
+
+- name: Create env folder
+  file: path=/srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/env state=directory mode=0755 owner=evermade group=evermade
+
+- name: Create vendor folder
+  file: path=/srv/www/{{ lookup('ini', 'PRODUCTION_URL file=../env/.env') }}/vendor state=directory mode=0755 owner=evermade group=evermade
+
+- service:
+    name: nginx
+    state: restarted

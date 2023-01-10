@@ -30,7 +30,7 @@
             ));
             ?>
         </div>
-        <div class="c-mobile-toggle" tabindex="0">
+        <div aria-label="Open mobile menu" role="button" aria-pressed="false" class="c-mobile-toggle" tabindex="0">
             <div></div>
             <div></div>
             <div></div>

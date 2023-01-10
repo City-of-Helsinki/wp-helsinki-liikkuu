@@ -1,0 +1,55 @@
+#some security
+location ~ /(readme.html|license.txt|schema.txt) {
+    deny all;
+    access_log off; #to prevent from filling up the access log file
+    error_log off; #to prevent from filling up the error log file
+}
+
+# Block php execution in the wp-includes folder (except tinymce.php)
+location ~* /wp-includes/.*(?<!tinymce)\.php$ {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+# Block php execution in the wp-content folder
+location ~* /wp-content/.*.php$ {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+# Block php execution in the uploads folder
+location ~* /uploads/.*\.php$ {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+# Block access to xmlrpc.php
+location = /xmlrpc.php {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+location = /wp-config.php {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+# Block user enumeration
+if ($args ~ "^/?author=([0-9]*)"){ set $rule_0 1$rule_0; }
+if ($rule_0 = "1"){ rewrite ^/$ /404 permanent; }
+
+# Built-in filename-based cache busting
+
+# https://github.com/h5bp/html5-boilerplate/blob/5370479476dceae7cc3ea105946536d6bc0ee468/.htaccess#L403
+# This will route all requests for /css/style.20120716.css to /css/style.css
+# Read also this: github.com/h5bp/html5-boilerplate/wiki/cachebusting
+# This is not included by default, because it'd be better if you use the build
+# script to manage the file names.
+location ~* (.+)\.(?:\d+)\.(js|css|png|jpg|jpeg|gif)$ {
+   try_files $uri $1.$2;
+}

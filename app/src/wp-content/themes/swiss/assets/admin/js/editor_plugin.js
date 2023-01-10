@@ -9,35 +9,43 @@
             onclick: function() {
                 editor.windowManager.open({
                     title: 'Insert Button',
-                    body: [{
-                        type: 'textbox',
-                        name: 'buttonName',
-                        label: 'Button Text',
-                        value: ''
-                    },
-                    {
-                        type: 'textbox',
-                        name: 'buttonUrl',
-                        label: 'Link',
-                        value: ''
-                    },
-                    {
-                        type: 'listbox',
-                        name: 'className',
-                        label: 'Style',
-                        values: [{
-                            text: 'Default',
+                    body: [
+                        {
+                            type: 'textbox',
+                            name: 'buttonName',
+                            label: 'Button Text',
                             value: ''
                         },
                         {
-                            text: 'White',
-                            value: 'c-btn--white'
-                        }
-                        ]
-                    }, ],
+                            type: 'textbox',
+                            name: 'buttonUrl',
+                            label: 'Link',
+                            value: ''
+                        },
+                        {
+                            type: 'listbox',
+                            name: 'className',
+                            label: 'Style',
+                            values: [{
+                                text: 'Default',
+                                value: ''
+                            },
+                            {
+                                text: 'White',
+                                value: 'c-btn--white'
+                            }
+                            ]
+                        },
+                        {
+                            type: 'textbox',
+                            name: 'ariaLabel',
+                            label: 'Aria Label',
+                            value: ''
+                        },
+                    ],
                     onsubmit: function(e) {
                         editor.insertContent(
-                            '[button class=&quot;' +  e.data.className + '&quot; text=&quot;' + e.data.buttonName + '&quot; url=&quot;' + e.data.buttonUrl + '&quot; ]' +
+                            '[button class=&quot;' +  e.data.className + '&quot; text=&quot;' + e.data.buttonName + '&quot; url=&quot;' + e.data.buttonUrl + '&quot; aria_label=&quot;' + e.data.ariaLabel + '&quot; ]' +
                             editor.selection
                             .getContent()
                         );

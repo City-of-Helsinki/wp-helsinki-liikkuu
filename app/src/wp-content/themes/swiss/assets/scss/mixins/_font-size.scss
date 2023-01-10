@@ -20,11 +20,13 @@
 
             // only add new font-size declaration if we don't already have it for previous breakpoint
             @if $bp-label == xs {
-                font-size: rem($font-size) $important;
+                //font-size: rem($font-size) $important;
+                font-size: $font-size $important;
             }
             @else if $font-size != $prev-font-size {
                 @include bp($bp-label) {
-                    font-size: rem($font-size) $important;
+                    //font-size: rem($font-size) $important;
+                    font-size: $font-size $important;
                 }
             }
 

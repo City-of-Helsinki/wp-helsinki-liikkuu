@@ -159,6 +159,13 @@ function registerLocalBlockFieldGroups()
                 ),
                 array(
                     array(
+                        'param' => 'page_template',
+                        'operator' => '==',
+                        'value' => 'template-page-subpages.php',
+                    ),
+                ),
+                array(
+                    array(
                         'param' => 'post_type',
                         'operator' => '==',
                         'value' => 'idea',
@@ -173,7 +180,7 @@ function registerLocalBlockFieldGroups()
             'hide_on_screen' => '',
             'active' => 1,
             'description' => '',
-            'modified' => 1516178549,
+            'modified' => 1516178550,
         ));
 
         return true;

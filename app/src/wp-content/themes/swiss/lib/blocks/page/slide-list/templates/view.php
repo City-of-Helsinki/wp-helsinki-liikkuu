@@ -24,7 +24,7 @@
 
                             </div>
 
-                         <a href="<?php echo get_field('link'); ?>" class="c-slideshow-card__overlay-link"></a>
+                         <a href="<?php echo get_field('link'); ?>" aria-label="<?php echo get_the_title() . ' ' . parse_url(get_field('link'))['host']; ?>" class="c-slideshow-card__overlay-link"></a>
 
 
                         </div>
@@ -36,7 +36,7 @@
         </div>
     <?php if($block->get('see_more')): ?>
             <div class="b-listing__see-more">
-                <a href="<?php echo $block->get('see_more_url'); ?>" class="c-btn"><?php echo $block->get('see_more_text'); ?></a>
+                <a href="<?php echo $block->get('see_more_url'); ?>" class="c-btn" aria-label="<?php echo $block->get('see_more_text') . ' ' . $block->get('see_more_url'); ?>"><?php echo $block->get('see_more_text'); ?></a>
             </div>
     <?php endif; ?>
 </section>

@@ -118,6 +118,12 @@ ul,
 ol {
     margin: 0;
     padding: 0 0 0 2em;
+
+    .h-wysiwyg-html & { 
+        a, a:hover, a:focus, a:active {
+            text-decoration: underline;
+        }
+    }
 }
 
 hr {

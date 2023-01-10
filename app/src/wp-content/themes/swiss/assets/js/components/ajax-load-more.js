@@ -30,9 +30,13 @@ const Tag = props => {
     );
 };
 
-const Item = ({data: {post_title,post_image,post_permalink,post_date,event_location,event_starts,event_ends, custom_class}}) => {
+const Item = ({data: {post_title,post_image,post_image_medium,post_permalink,post_date,event_location,event_starts,event_ends, custom_class}}) => {
+    
     const style = {
         backgroundImage: "url("+post_image+")",
+    };
+    const style_medium = {
+        backgroundImage: "url("+post_image_medium+")",
     };
     const classes = 'c-card trigger-hover '+custom_class;
 
@@ -45,21 +49,24 @@ const Item = ({data: {post_title,post_image,post_permalink,post_date,event_locat
 
     return (
 
-    <div className="l-cards__item">
+    <a href={post_permalink} className="l-cards__item" aria-label={post_title} title={post_title}>
         <div className={classes}>
-        <a className="c-card__imagewrapper" href={post_permalink}><div className="c-card__image" style={style}>
-        {meta}
-        </div></a>
-            <div className="c-card__content">
-
-                <h4 className="c-card__title"><a href={post_permalink} title={post_title}>{post_title}</a></h4>
-                {eventFields}
-                <div className="c-card__readmore"><a href={post_permalink} className="c-cta-link">{window.swissLocalization['read_more']}</a></div>
-
+            <div className="c-card__imagewrapper">
+                <div className="c-card__image" style={style_medium}>
+                    {meta}
+                </div>
             </div>
-
+            <div className="c-card__content">
+                <h4 className="c-card__title">
+                    <div title={post_title}>{post_title}</div>
+                </h4>
+                {eventFields}
+                <div className="c-card__readmore">
+                    <div className="c-cta-link">{window.swissLocalization['read_more']}</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </a>
     );
 };
 
@@ -89,6 +96,7 @@ class Filter extends React.Component {
             url: ajaxurl,
             type: 'GET',
             success: function(data) {
+                // console.log(data);
                 let allTags = [];
                 for (let key in data) {
                     let postTags = data[key]['post_tags'] ? data[key]['post_tags'].map(tag => tag.name) : [];
@@ -103,6 +111,7 @@ class Filter extends React.Component {
                 }
                 if (this.state.allWpPosts.length <= this.state.end) {
                     $('.js-loadmore').hide();
+                    $('.js-loadmore').parent().hide();
                 }
             }.bind(this),
         });
@@ -121,10 +130,16 @@ class Filter extends React.Component {
         );
         if (this.state.end+this.state.perPage >= this.state.wpPosts.length) {
             $('.js-loadmore').hide();
+            $('.js-loadmore').parent().hide();
         }
     }
 
     filterByTag(tag) {
+        if( $(this).attr('aria-label') === false ){
+            $(this).attr('aria-label', 'true');
+        } else {
+            $(this).attr('aria-label', 'false');
+        }
         if (tag == 'clear-all-filters') {
             let allWpPosts = [...this.state.allWpPosts];
             $('.c-card').addClass('c-card--removing');
@@ -137,6 +152,7 @@ class Filter extends React.Component {
             }, 100);
             if (allWpPosts.length > this.state.end) {
                 $('.js-loadmore').show();
+                $('.js-loadmore').parent().show();
             }
             return;
         }
@@ -162,9 +178,11 @@ class Filter extends React.Component {
     }, 100);
         if (wpPostsWithTag.length <= this.state.end) {
             $('.js-loadmore').hide();
+            $('.js-loadmore').parent().hide();
         }
         else {
             $('.js-loadmore').show();
+            $('.js-loadmore').parent().show();
         }
     }
 
@@ -202,7 +220,7 @@ class Filter extends React.Component {
                 <div className="l-cards">
                 {wpPosts.map(item => <Item key={item.ID} data={item}/>)}
                 </div></div>
-                <a className="b-blog__loadmore" href="#" onClick={this.handleShowMore}><button className="c-btn js-loadmore">{window.swissLocalization['show_more']}</button></a>
+                <a className="b-blog__loadmore" aria-label={ window.swissLocalization['show_more'] } href="#" onClick={this.handleShowMore}><button className="c-btn js-loadmore">{window.swissLocalization['show_more']}</button></a>
 
             </React.Fragment>
         );
