@@ -47,7 +47,7 @@
     "flickity": "^2.0.10",
     "flightplan": "^0.6.17",
     "font-awesome": "^4.7.0",
-    "glob": "^7.1.2",
+    "glob": "^7.2.3",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.1",
     "gulp-shell": "^0.6.5",
